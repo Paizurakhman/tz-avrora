@@ -1,0 +1,183 @@
+{
+  "city": [
+    {
+      "name": "Нур-Султан",
+      "total": 100,
+      "fact_count": 15,
+      "background": "#fff",
+      "children": [
+        {
+          "name": "Центр 1",
+          "total": 100,
+          "fact_count": 15,
+          "background": "#e4edfc",
+          "children": [
+            {
+              "name": "Управление 1",
+              "total": 100,
+              "fact_count": 15,
+              "background": "#c5dcfe",
+              "children": [
+                {
+                  "name": "Отдел 1",
+                  "total": 100,
+                  "fact_count": 15,
+                  "background": "#9dc4ff"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Алматы",
+      "total": 140,
+      "fact_count": 20,
+      "background": "#fff",
+      "children": [
+        {
+          "name": "Центр 1",
+          "total": 60,
+          "fact_count": 10,
+          "background": "#e4edfc",
+          "children": [
+            {
+              "name": "Управление 1",
+              "total": 25,
+              "fact_count": 5,
+              "background": "#c5dcfe",
+              "children": [
+                {
+                  "name": "Отдел 1",
+                  "total": 10,
+                  "fact_count": 10,
+                  "background": "#9dc4ff"
+                },
+                {
+                  "name": "Отдел 2",
+                  "total": 10,
+                  "fact_count": 10,
+                  "background": "#9dc4ff"
+                }
+              ]
+            },
+            {
+              "name": "Управление 2",
+              "total": 25,
+              "fact_count": 5,
+              "background": "#c5dcfe",
+              "children": [
+                {
+                  "name": "Отдел 1",
+                  "total": 10,
+                  "fact_count": 10,
+                  "background": "#9dc4ff"
+                },
+                {
+                  "name": "Отдел 2",
+                  "total": 10,
+                  "fact_count": 10,
+                  "background": "#9dc4ff"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Центр 2",
+          "total": 60,
+          "fact_count": 10,
+          "background": "#e4edfc",
+          "children": [
+            {
+              "name": "Управление 1",
+              "total": 25,
+              "fact_count": 5,
+              "background": "#c5dcfe",
+              "children": [
+                {
+                  "name": "Отдел 1",
+                  "total": 10,
+                  "fact_count": 10,
+                  "background": "#9dc4ff"
+                },
+                {
+                  "name": "Отдел 2",
+                  "total": 10,
+                  "fact_count": 10,
+                  "background": "#9dc4ff"
+                }
+              ]
+            },
+            {
+              "name": "Управление 2",
+              "total": 25,
+              "fact_count": 5,
+              "background": "#c5dcfe",
+              "children": [
+                {
+                  "name": "Отдел 1",
+                  "total": 10,
+                  "fact_count": 10,
+                  "background": "#9dc4ff"
+                },
+                {
+                  "name": "Отдел 2",
+                  "total": 10,
+                  "fact_count": 10,
+                  "background": "#9dc4ff"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Актау",
+      "total": 50,
+      "fact_count": 5,
+      "background": "#fff",
+      "children": [
+        {
+          "name": "Центр 1",
+          "total": 100,
+          "fact_count": 15,
+          "background": "#ccf3ff",
+          "children": [
+            {
+              "name": "Управление 1",
+              "total": 100,
+              "fact_count": 15,
+              "background": "#c5dcfe",
+              "children": [
+                {
+                  "name": "Отдел 1",
+                  "total": 100,
+                  "fact_count": 15,
+                  "background": "#9dc4ff",
+                  "children": []
+                },
+                {
+                  "name": "Отдел 2",
+                  "total": 100,
+                  "fact_count": 15,
+                  "background": "#9dc4ff",
+                  "children": [
+                    {
+                      "name": "Sub Отдел 2",
+                      "total": 10,
+                      "fact_count": 10,
+                      "background": "#7dc0fe"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
