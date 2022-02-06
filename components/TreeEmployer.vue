@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <li>
     <div
       @click="handleClick"
       class="node"
@@ -13,15 +13,20 @@
         ></i>
         {{ node.name }}
       </div>
-      <div>{{node.total}}</div>
+      <div>{{ total }}</div>
       <div>{{ node.fact_count }}</div>
       <div class="actions">
-        <button @click.stop="handleEdit(node)"><i class="fas fa-edit"></i></button>
-        <button @click.stop="handleDelete(node)"><i class="fas fa-trash-alt"></i></button>
+        <button @click.stop="handleEdit(node)" class="btn transparent-btn">
+          <i class="fas fa-pen"></i>
+        </button>
+        <button @click.stop="handleDelete(node)" class="btn transparent-btn">
+          <i class="fas fa-times-circle"></i>
+        </button>
       </div>
     </div>
 
     <transition-group
+      tag="ul"
       name="expand"
       @enter="enter"
       @after-enter="afterEnter"
@@ -33,9 +38,11 @@
         :key="child.name"
         :node="child"
         :space="space + 20"
+        @edit="(node) => $emit('edit', node)"
+        @delete="(node) => $emit('delete', node)"
       />
     </transition-group>
-  </div>
+  </li>
 </template>
 
 <script>
@@ -50,12 +57,18 @@ export default {
   },
   data() {
     return {
-      open: false
+      open: false,
+      res: 0
     }
   },
   computed: {
     hasChildren() {
       return this.node.children && this.node.children.length > 0
+    },
+    total() {
+      this.res = 0
+      this.sum(this.node)
+      return this.res
     }
   },
   methods: {
@@ -82,10 +95,19 @@ export default {
       this.open = !this.open
     },
     handleEdit(node) {
-      console.log(node)
+      this.$emit('edit', node)
     },
     handleDelete(node) {
-      console.log(node)
+      this.$emit('delete', node)
+    },
+
+    sum(node) {
+      this.res += node.fact_count
+      if (node.children) {
+        for (const el of node.children) {
+          this.sum(el)
+        }
+      }
     }
   },
 }
@@ -93,17 +115,20 @@ export default {
 
 <style scoped lang="scss">
 
-  .expand-enter-active,
-  .expand-leave-active
-  {
-    transition: height 0.3s ease-in-out;
-    overflow: hidden;
-  }
-  .node {
-    .actions {
-      i {
-        font-size: 1.3em;
-      }
+.expand-enter-active,
+.expand-leave-active {
+  transition: height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.node {
+  .actions {
+    button {
+      margin-right: 10px;
+    }
+    i {
+      font-size: 1.4em;
     }
   }
+}
 </style>
