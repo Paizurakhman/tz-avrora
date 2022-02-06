@@ -1,4 +1,5 @@
 import cities from '@/assets/data/db.json'
+let uid = require('uuid-random');
 
 export const state = () => ({
   ...cities,
@@ -63,8 +64,9 @@ export const mutations = {
             editItem.children.push({
               name: data.section_name,
               fact_count: +data.section_fact_count,
-              id: +editItem.id + 100,
-              children: []
+              id: uid(),
+              children: [],
+              background: data.background
             })
           }
         }

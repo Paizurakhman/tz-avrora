@@ -56,6 +56,8 @@ import Modal from "~/components/Modal";
 import {mapActions, mapGetters} from 'vuex'
 import EditData from "~/components/Modal/EditData";
 import AddData from "~/components/Modal/AddData";
+import ColorHash from 'color-hash';
+const colorHash = new ColorHash()
 
 export default {
   components: {AddData, EditData, Modal},
@@ -107,12 +109,12 @@ export default {
       }
     },
     editOrganization() {
-      // this.edit(this.cities, this.editNode)
       let organization = {
         name: this.editOrg.nameOrganization,
         fact_count: this.editOrg.fact_count,
         section_name: this.editOrg.sectionNameOrganization,
         section_fact_count: this.editOrg.sectionFact_count,
+        background: colorHash.hex(this.editOrg.sectionNameOrganization)
       }
       this.EDIT_NODE({ ...organization })
       this.GET_MODAL_EDIT()
