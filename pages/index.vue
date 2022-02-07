@@ -114,7 +114,7 @@ export default {
         fact_count: this.editOrg.fact_count,
         section_name: this.editOrg.sectionNameOrganization,
         section_fact_count: this.editOrg.sectionFact_count,
-        background: colorHash.hex(this.editOrg.sectionNameOrganization)
+        background: colorHash.hex(this.editOrg.sectionNameOrganization || 'test')
       }
       this.EDIT_NODE({ ...organization })
       this.GET_MODAL_EDIT()
