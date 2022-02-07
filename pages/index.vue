@@ -99,7 +99,7 @@ export default {
       let organization = {
         id: this.nodes.cities.length + 1,
         name: this.addOrg.nameOrganization,
-        fact_count: this.addOrg.fact_count || 0,
+        fact_count: +this.addOrg.fact_count || 0,
         background: "#fff",
         children: []
       }
