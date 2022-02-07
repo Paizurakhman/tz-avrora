@@ -32,18 +32,36 @@
       <dropdown>
         <div class="edit-modal__content" v-if="open">
           <label>Имя секции</label>
-          <base-input
-            v-model="sectionNameOrganization"
-            placeholder="Имя организации"
-            @input.native="updateValue"
-          />
+          <div class="base-input">
+            <input
+              :value="value.sectionNameOrganization"
+              placeholder="Имя организации"
+              @input="updateValue"
+              ref="section_name"
+            />
+          </div>
+<!--          <base-input-->
+<!--            v-model="sectionNameOrganization"-->
+<!--            placeholder="Имя организации"-->
+<!--            @input.native="updateValue"-->
+<!--          />-->
           <label>Фактическое количество</label>
-          <base-input
-            v-model.number="sectionFact_count"
-            placeholder="Фактическое количество"
-            type="number"
-            @input.native="updateValue"
-          />
+
+          <div class="base-input">
+            <input
+              :value="value.sectionFact_count"
+              placeholder="Фактическое количество"
+              @input="updateValue"
+              type="number"
+              ref="section_fact_count"
+            />
+          </div>
+<!--          <base-input-->
+<!--            v-model.number="sectionFact_count"-->
+<!--            placeholder="Фактическое количество"-->
+<!--            type="number"-->
+<!--            @input.native="updateValue"-->
+<!--          />-->
         </div>
       </dropdown>
     </div>
@@ -73,8 +91,8 @@ export default {
       this.$emit('input', {
         nameOrganization: this.$refs.name.value,
         fact_count: this.$refs.fact_count.value,
-        sectionNameOrganization: this?.sectionNameOrganization,
-        sectionFact_count: this?.sectionFact_count
+        sectionNameOrganization: this.$refs.section_name.value,
+        sectionFact_count: this.$refs.section_fact_count.value
       })
     }
   },

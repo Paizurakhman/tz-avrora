@@ -99,13 +99,15 @@ export default {
       let organization = {
         id: this.nodes.cities.length + 1,
         name: this.addOrg.nameOrganization,
-        fact_count: this.addOrg.fact_count,
+        fact_count: this.addOrg.fact_count || 0,
         background: "#fff",
         children: []
       }
       if (this.addOrg.nameOrganization) {
         this.ADD_NODE({...organization})
         this.GET_MODAL_ADD()
+        this.addOrg.nameOrganization = null
+        this.addOrg.fact_count = null
       }
     },
     editOrganization() {
@@ -118,6 +120,9 @@ export default {
       }
       this.EDIT_NODE({ ...organization })
       this.GET_MODAL_EDIT()
+
+      this.editOrg.sectionNameOrganization = null
+      this.editOrg.sectionFact_count = null
     }
   },
   computed: {

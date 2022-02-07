@@ -2,18 +2,35 @@
   <div class="add-modal">
     <div class="add-modal__content">
       <label>Имя организации</label>
-      <base-input
-        v-model="nameOrganization"
-        placeholder="Имя организации"
-        @input.native="updateValue"
-      />
+      <div class="base-input">
+        <input
+          :value="value.nameOrganization"
+          placeholder="Имя организации"
+          @input="updateValue"
+          ref="name"
+        />
+      </div>
+<!--      <base-input-->
+<!--        v-model="nameOrganization"-->
+<!--        placeholder="Имя организации"-->
+<!--        @input.native="updateValue"-->
+<!--      />-->
       <label>Фактическое количество</label>
-      <base-input
-        v-model.number="fact_count"
-        placeholder="Фактическое количество"
-        type="number"
-        @input.native="updateValue"
-      />
+      <div class="base-input">
+        <input
+          :value="value.fact_count"
+          placeholder="Фактическое количество"
+          @input="updateValue"
+          type="number"
+          ref="fact_count"
+        />
+      </div>
+<!--      <base-input-->
+<!--        v-model.number="fact_count"-->
+<!--        placeholder="Фактическое количество"-->
+<!--        type="number"-->
+<!--        @input.native="updateValue"-->
+<!--      />-->
     </div>
   </div>
 </template>
@@ -23,6 +40,7 @@ import BaseInput from "~/components/BaseInput";
 export default {
   name: "AddData",
   components: {BaseInput},
+  props: ['value'],
   data() {
     return {
       nameOrganization: null,
@@ -32,8 +50,8 @@ export default {
   methods: {
     updateValue() {
       this.$emit('input', {
-        nameOrganization: this.nameOrganization,
-        fact_count: this.fact_count,
+        nameOrganization: this.$refs.name.value,
+        fact_count: this.$refs.fact_count.value,
       })
     }
   },
