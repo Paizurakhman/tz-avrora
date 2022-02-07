@@ -6,7 +6,8 @@ export const state = () => ({
   nodes: cities,
   modalAdd: false,
   modalEdit: false,
-  node: null
+  node: null,
+  open: false
 })
 
 export const actions = {
@@ -28,6 +29,9 @@ export const actions = {
   GET_MODAL_EDIT({commit}) {
     commit('SET_MODAL_EDIT')
   },
+  GET_OPEN({commit}) {
+    commit('SET_OPEN')
+  }
 }
 
 export const mutations = {
@@ -78,6 +82,9 @@ export const mutations = {
       }
     }
   },
+  SET_OPEN(state) {
+    state.open = !state.open
+  },
   SET_ADD_NODE(state, node) {
     state.nodes.cities.push(node)
   },
@@ -98,5 +105,8 @@ export const getters = {
   },
   MODAL_EDIT(state) {
     return state.modalEdit
+  },
+  OPEN(state) {
+    return state.open
   }
 }

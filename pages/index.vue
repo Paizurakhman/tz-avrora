@@ -82,7 +82,8 @@ export default {
       'DELETE_NODE',
       'SELECTED_NODE',
       'EDIT_NODE',
-      'ADD_NODE'
+      'ADD_NODE',
+      'GET_OPEN'
     ]),
     editData(node) {
       this.editOrg.nameOrganization = node.name
@@ -123,6 +124,7 @@ export default {
 
       this.editOrg.sectionNameOrganization = null
       this.editOrg.sectionFact_count = null
+      this.GET_OPEN()
     }
   },
   computed: {

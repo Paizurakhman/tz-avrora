@@ -40,11 +40,7 @@
               ref="section_name"
             />
           </div>
-<!--          <base-input-->
-<!--            v-model="sectionNameOrganization"-->
-<!--            placeholder="Имя организации"-->
-<!--            @input.native="updateValue"-->
-<!--          />-->
+
           <label>Фактическое количество</label>
 
           <div class="base-input">
@@ -56,12 +52,7 @@
               ref="section_fact_count"
             />
           </div>
-<!--          <base-input-->
-<!--            v-model.number="sectionFact_count"-->
-<!--            placeholder="Фактическое количество"-->
-<!--            type="number"-->
-<!--            @input.native="updateValue"-->
-<!--          />-->
+
         </div>
       </dropdown>
     </div>
@@ -70,6 +61,7 @@
 
 <script>
 import BaseInput from "~/components/BaseInput";
+import {mapActions, mapGetters} from "vuex";
 export default {
   name: "EditData",
   components: {BaseInput},
@@ -78,14 +70,14 @@ export default {
     return {
       nameOrganization: null,
       fact_count: null,
-      open: false,
       sectionNameOrganization: null,
       sectionFact_count: null
     }
   },
   methods: {
+    ...mapActions(['GET_OPEN']),
     addSection() {
-      this.open = !this.open
+      this.GET_OPEN()
     },
     updateValue() {
       this.$emit('input', {
@@ -94,6 +86,12 @@ export default {
         sectionNameOrganization: this.$refs.section_name.value,
         sectionFact_count: this.$refs.section_fact_count.value
       })
+    }
+  },
+  computed: {
+    ...mapGetters(['OPEN']),
+    open() {
+      return this.OPEN
     }
   },
 }
